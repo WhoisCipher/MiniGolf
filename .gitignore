@@ -1,0 +1,21 @@
+# Ignore build directories
+/build/
+/bin/
+/obj/
+/CMakeFiles/
+
+# Ignore executable files (compiled binaries)
+minigolf
+minigolf.exe
+
+# Ignore CMake cache files
+CMakeCache.txt
+CMakeError.log
+CMakeOutput.log
+
+# Ignore temporary files
+*.tmp
+*.bak
+
+# Ignore zip files (optional, if you plan to distribute zip)
+*.zip
