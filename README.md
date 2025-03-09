@@ -51,7 +51,7 @@ The project uses **CMake** to generate build files for the game. CMake will help
     make
     ```
 
-5. Run the game: After building, you can run the game with the following command:
+5. **Run the game: After building, you can run the game with the following command:**
     ```
     make run
     ```
