@@ -55,18 +55,18 @@ int main() {
     bool isBallPotted = false;
 
     InitWindow(screenWidth, screenHeight, "Golf");
-    
+
 
     while (!WindowShouldClose()) {
         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !ball.isMoving && !isBallPotted) {
             Vector2 distanceToBall = Vector2Subtract(GetMousePosition(), ball.Position);
             ball.Velocity = Vector2Negate(distanceToBall);
             ball.Velocity = Vector2Scale(ball.Velocity, 5);
-            ball.isMoving = true;  
+            ball.isMoving = true;
         }
 
         ball.Position = Vector2Add(ball.Position, Vector2Scale(ball.Velocity, GetFrameTime()));
-        
+
         ball.Velocity.x *= friction;
         ball.Velocity.y *= friction;
 
@@ -85,9 +85,9 @@ int main() {
         // Handle window boundary collision
         if (ball.Position.x - ball.radius <= 0) {
             ball.Position.x = ball.radius;
-            ball.Velocity.x = -ball.Velocity.x * 0.8f; 
+            ball.Velocity.x = -ball.Velocity.x * 0.8f;
         }
-        
+
         else if (ball.Position.x + ball.radius >= screenWidth) {
             ball.Position.x = screenWidth - ball.radius;
             ball.Velocity.x = -ball.Velocity.x * 0.8f;
@@ -96,8 +96,8 @@ int main() {
         if (ball.Position.y - ball.radius <= 0) {
             ball.Position.y = ball.radius;
             ball.Velocity.y = -ball.Velocity.y * 0.8f;
-        } 
-        
+        }
+
         else if (ball.Position.y + ball.radius >= screenHeight) {
             ball.Position.y = screenHeight - ball.radius;
             ball.Velocity.y = -ball.Velocity.y * 0.8f;
@@ -111,7 +111,7 @@ int main() {
         }
 
         BeginDrawing();
-        
+
             ClearBackground(grass);
             DrawCircleV(ballPot.Position, 36, pot);
             DrawCircleV(ballPot.Position, 25, (Color){60, 60, 60, 255});
@@ -126,7 +126,7 @@ int main() {
 
             if(isBallPotted)
                 DrawText("ball Potted!", screenWidth/2 - 280, screenHeight/2 - 50, 100, LIME);
-            
+
 
         EndDrawing();
     }
