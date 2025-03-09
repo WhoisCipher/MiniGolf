@@ -1,20 +1,22 @@
 cmake_minimum_required(VERSION 3.10)
 
+# Project name
 project(MiniGolf)
 
-# Set C standards
-set(CMAKE_C_STANDARD 99)
+# Set the C++ standard
+set(CMAKE_CXX_STANDARD 11)
 
-# Find Raylib package (make sure Raylib is installed in your system)
+# Add the source files (all .cpp files in the src folder)
+file(GLOB SOURCES "src/*.cpp")
+
+# Create the executable
+add_executable(minigolf ${SOURCES})
+
+# Find raylib package and link it
 find_package(raylib REQUIRED)
-
-# Define the executable
-add_executable(minigolf main.c)
-
-# Link the Raylib library
 target_link_libraries(minigolf raylib)
 
-# run target that adds make run to the Makefile
+# Run target to add make run to the Makefile
 add_custom_target(run
     COMMAND ${CMAKE_BINARY_DIR}/minigolf
     DEPENDS minigolf
